@@ -30,14 +30,14 @@ const SignUp = () => {
 
 
                         <div className="block md:hidden mt-6">
-                            <p className="flex  mx-auto md:mt-6">Already have an account <Link className="text-blue-600  font-semibold ml-2"> Login</Link></p>
+                            <p className="flex  mx-auto md:mt-6">Already have an account <Link to={'/login'} className="text-blue-600  font-semibold ml-2"> Login</Link></p>
                         </div>
                         <input className="  border border-blue-950 flex items-center text-md font-medium rounded-lg px-4 mt-8 py-2 hover:bg-blue-950 hover:text-white" type="submit" value="Sign Up" />
                     </form>
 
                     <div className="flex-1 md:flex flex-col text-center my-6 hidden">
                         <img className="mx-auto" src="https://i.ibb.co/BVy8W2r/logo.png" alt="" />
-                        <p className="flex mx-auto md:mt-4">Already have an account <Link className="text-blue-600  font-semibold ml-2"> Login</Link></p>
+                        <p className="flex mx-auto md:mt-4">Already have an account <Link to={'/login'} className="text-blue-600  font-semibold ml-2"> Login</Link></p>
                     </div>
                 </div>
 
