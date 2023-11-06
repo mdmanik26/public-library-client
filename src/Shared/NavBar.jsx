@@ -55,7 +55,7 @@ const NavBar = () => {
 
             </div>
 
-
+  
 
 
             <div className="max-w-[1440px] mx-auto flex justify-between mt-2  items-center">
@@ -76,8 +76,7 @@ const NavBar = () => {
                                 menu === true ? <AiOutlineClose className="text-2xl"></AiOutlineClose>: <AiOutlineMenu className="text-2xl"></AiOutlineMenu>
                             }
 
-                            {/* // <VscChromeClose className="text-2xl" />
-                            //         : <VscMenu className="text-2xl" /> */}
+                
 
                         </div>
                         <ul className={` z-10 shadow-lg  md:shadow-lg lg:shadow-none lg:flex absolute lg:static gap-6 text-lg 
