@@ -6,6 +6,7 @@ import Root from "../Layout/Root";
 import Home from "../Pages/Home";
 import SignUp from "../Pages/SignUp";
 import Login from "../Pages/Login";
+import AddBooks from "../Pages/AddBooks";
 
   const router = createBrowserRouter([
     {
@@ -23,6 +24,10 @@ import Login from "../Pages/Login";
             {
               path:'/login',
               element: <Login></Login>
+            },
+            {
+              path:'/addbook',
+              element: <AddBooks></AddBooks>
             }
         ]
     }

@@ -82,7 +82,7 @@ const NavBar = () => {
                         <ul className={` z-10 shadow-lg  md:shadow-lg lg:shadow-none lg:flex absolute lg:static gap-6 text-lg 
                         ${menu ? "top-18 right-8 text-white lg:text-black" : "-top-40 right-8"}`}>
                             <li className=" border-b-2 border-blue-950 bg-blue-800 lg:bg-transparent text-center lg:text-left lg:border-0 px-2 lg:px-0"><NavLink to={'/'}>Home</NavLink></li>
-                            <li className=" border-b-2 border-blue-950 bg-blue-800 lg:bg-transparent text-center lg:text-left lg:border-0 px-2  lg:px-0"><NavLink to={'/addBook'}>Add Book</NavLink></li>
+                            <li className=" border-b-2 border-blue-950 bg-blue-800 lg:bg-transparent text-center lg:text-left lg:border-0 px-2  lg:px-0"><NavLink to={'/addbook'}>Add Book</NavLink></li>
                             <li className=" border-b-2 border-blue-950 bg-blue-800 lg:bg-transparent text-center lg:text-left lg:border-0 px-2 lg:px-0"><NavLink to={'/allBooks'}>All Books</NavLink></li>
                             <li className=" border-b-2 border-blue-950 bg-blue-800 lg:bg-transparent text-center lg:text-left lg:border-0 px-2 lg:px-0"><NavLink to={'/borrowedBooks'}>Borrowed
 Books</NavLink></li>
