@@ -84,7 +84,7 @@ const NavBar = () => {
                             <li className=" border-b-2 border-blue-950 bg-blue-800 lg:bg-transparent text-center lg:text-left lg:border-0 px-2 lg:px-0"><NavLink to={'/'}>Home</NavLink></li>
                             <li className=" border-b-2 border-blue-950 bg-blue-800 lg:bg-transparent text-center lg:text-left lg:border-0 px-2  lg:px-0"><NavLink to={'/addbook'}>Add Book</NavLink></li>
                             <li className=" border-b-2 border-blue-950 bg-blue-800 lg:bg-transparent text-center lg:text-left lg:border-0 px-2 lg:px-0"><NavLink to={'/allBooks'}>All Books</NavLink></li>
-                            <li className=" border-b-2 border-blue-950 bg-blue-800 lg:bg-transparent text-center lg:text-left lg:border-0 px-2 lg:px-0"><NavLink to={'/borrowedBooks'}>Borrowed
+                            <li className=" border-b-2 border-blue-950 bg-blue-800 lg:bg-transparent text-center lg:text-left lg:border-0 px-2 lg:px-0"><NavLink to={'/borrowed'}>Borrowed
 Books</NavLink></li>
                             <li className=" rounded-b-md lg:rounded-b-0 bg-blue-800 lg:bg-transparent text-center lg:text-left px-2 lg:px-0"><NavLink to={'/login'}>Login</NavLink></li>
                         </ul>
