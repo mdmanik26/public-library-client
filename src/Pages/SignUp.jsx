@@ -1,13 +1,76 @@
 import { BiSolidPhotoAlbum } from "react-icons/bi";
 import { AiOutlineUser, AiOutlineMail, AiOutlineLock } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../Shared/AuthProvider";
+import Swal from "sweetalert2";
+import auth from "../Firebase/firebase.config";
+import { updateProfile } from "firebase/auth";
+
+
 const SignUp = () => {
+
+    const { createUser } = useContext(AuthContext)
+
+    const handleSignUp = (e) => {
+        e.preventDefault()
+        const form = e.target
+        const name = form.name.value
+        const email = form.email.value
+        const photo = form.photo.value
+        const password = form.password.value
+       
+
+        if (password.length < 6) {
+            Swal.fire({
+                title: 'Error!',
+                text: 'Your password must be six character or longer!',
+                icon: 'error',
+                confirmButtonText: 'OK'
+            })
+            return
+        }
+        else if (!/^(?=.*[A-Z])(?=.*[\W_]).+$/.test(password)) {
+            Swal.fire({
+                title: 'Error!',
+                text: 'Your password must have one Uppercase letter and on special character!',
+                icon: 'error',
+                confirmButtonText: 'OK'
+            })
+            return
+        }
+
+        createUser(email, password)
+            .then(res => {
+                console.log(res.user);
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'User Created Successfully',
+                    icon: 'success',
+                    confirmButtonText: 'OK'
+                })
+
+                updateProfile(auth.currentUser,{
+                    displayName:name, photoURL: photo
+                  })
+                  .then(res => {
+                    
+                  })
+                  .catch()
+
+
+            })
+            .catch(err => console.log(err))
+
+    }
+
+
     return (
         <div>
             <div className="max-w-5xl mx-auto border-2 py-4 my-10  px-4 lg:px-20 rounded-lg">
                 <h1 className="text-5xl text-center md:text-left text-blue-900 font-bold mb-10">Sign Up</h1>
                 <div className="flex flex-col-reverse md:flex-row justify-between my-10">
-                    <form className="flex-1">
+                    <form onSubmit={handleSignUp} className="flex-1">
                         <div className="flex pb-2 gap-1  items-center border-b-2 border-blue-950">
                             <AiOutlineUser className="text-2xl font-bold"></AiOutlineUser>
                             <input className="w-3/4 px-2  focus:outline-none" type="text" name="name" placeholder="Your Name" />
