@@ -28,7 +28,7 @@ const Update = () => {
 
                         <div className='flex-1'>
                             <p className="text-lg font-semibold text-blue-950 text-left">Category</p>
-                            {/* <input className='text-white focus:text-black focus:border-l-8 focus:border-blue-950 focus:bg-white focus:rounded-r-lg w-full mb-3 px-3 py-3 outline-0 border border-white bg-blue-950' type="text" name="price" required placeholder="Category" /> */}
+                            
 
                             <select className="py-3 bg-blue-950 text-white w-full text-center">
 
