@@ -14,11 +14,13 @@ import Books from "../Components/Books";
 import Details from "../Pages/Details";
 import Update from "../Pages/Update";
 import Read from "../Pages/Read";
+import ErrorPage from "../Pages/ErrorPage";
 
   const router = createBrowserRouter([
     {
         path:'/',
         element:<Root></Root>,
+        errorElement: <ErrorPage></ErrorPage>,
         children:[
             {
                 path:'/',
