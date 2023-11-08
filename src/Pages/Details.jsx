@@ -24,7 +24,7 @@ const Details = () => {
                     <p className="text-md font-semibold mt-2 ">Quantity: {quantity}</p>
                     <p className="text-xl font-bold mt-2">Short Description:</p>
                     <p className="text-justify">{description}</p>
-                    <div className="text-xl font-bold flex items-center"><span>Rating: </span> <Rating initialRating={rating}></Rating></div>
+                    <div className="text-xl font-bold flex items-center my-2"><span>Rating: </span> <Rating initialRating={rating}></Rating></div>
                     <div className="flex items-center gap-6 mt-4">
                         <button className="border-2 border-blue-950 rounded-lg py-2 px-4 font-semibold w-2/4 hover:bg-blue-950 hover:text-white">Borrow</button>
 

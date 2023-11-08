@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import Rating from "react-rating";
+import { Link } from "react-router-dom";
 
 
 
@@ -27,7 +28,7 @@ const AllBooks = () => {
                         <p className="text-xl font-bold ">Category: <span className="font-medium">{book?.category}</span></p>
                         <p className="text-md ">Quantity: {book?.quantity}</p>
                         <p className="text-xl font-medium "><Rating className="text-red-500 font-lg" initialRating={book?.rating}></Rating> </p>
-                        <button className="btn btn-outline px-6 hover:bg-blue-950">Update</button>
+                        <Link to={`/update/${book._id}`}><button className="btn btn-outline my-3 px-6 hover:bg-blue-950">Update</button></Link>
                     </div>
                 </div>)
             }
