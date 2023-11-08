@@ -23,7 +23,7 @@ const Categories = () => {
                     <img className="rounded-lg w-full" src={category?.image} alt="" />
                     <div className="flex justify-between items-center px-3 py-4 text-blue-700">
                         <p className="text-2xl font-bold">{category?.name}</p>
-                        <Link to={'/login'}><BiSolidRightArrowAlt className="text-5xl font-bold hover:scale-125 duration-500"></BiSolidRightArrowAlt></Link>
+                        <Link to={`/books/${category.name}`}><BiSolidRightArrowAlt className="text-5xl font-bold hover:scale-125 duration-500"></BiSolidRightArrowAlt></Link>
                     </div>
 
 
