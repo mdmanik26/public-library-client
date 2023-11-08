@@ -13,6 +13,7 @@ import PrivateRoutes from "./PrivateRoutes";
 import Books from "../Components/Books";
 import Details from "../Pages/Details";
 import Update from "../Pages/Update";
+import Read from "../Pages/Read";
 
   const router = createBrowserRouter([
     {
@@ -56,6 +57,11 @@ import Update from "../Pages/Update";
             {
               path:'/update/:id',
               element: <PrivateRoutes><Update></Update></PrivateRoutes>,
+              loader: ({params}) => fetch(`http://localhost:5000/book/${params.id}`)
+            },
+            {
+              path:'/read/:id',
+              element: <PrivateRoutes><Read></Read></PrivateRoutes>,
               loader: ({params}) => fetch(`http://localhost:5000/book/${params.id}`)
             },
         ]

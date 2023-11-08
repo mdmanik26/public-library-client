@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import Rating from "react-rating";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../Shared/AuthProvider";
 import Swal from "sweetalert2";
 
@@ -76,7 +76,7 @@ const Details = () => {
                     <div className="flex items-center gap-6 mt-4">
                         <button onClick={() => document.getElementById('my_modal_5').showModal()} className="border-2 border-blue-950 rounded-lg py-2 px-4 font-semibold w-2/4 hover:bg-blue-950 hover:text-white">Borrow</button>
 
-                        <button className="border-2 border-blue-950 rounded-lg py-2 px-4 font-semibold w-2/4 hover:bg-blue-950 hover:text-white">Read More</button>
+                        <Link to={`/read/${_id}`}><button className="border-2 border-blue-950 rounded-lg py-2 px-4 font-semibold w-full hover:bg-blue-950 hover:text-white">Read More</button></Link>
                     </div>
                 </div>
 
@@ -89,18 +89,7 @@ const Details = () => {
 
 
             <dialog id="my_modal_5" className=" modal modal-bottom sm:modal-middle">
-                {/* <div className="modal-box min-h-[300px]">
-                    
-                    <p className="py-2 text-2xl font-medium text-center">Fill Up the Form</p>
-                    
-                        <form onSubmit={handleBorrow} method="dialog ">
-                            <p className="text-xl">Return Date:</p>
-                           
-                            <input type="date" name="date" className="my-5 border border-blue-800 rounded-lg px-3 w-full py-3 focus:outline-blue-800" />                          
-                           <button> <input className=" w-full py-3 px-4 btn btn-outline" type="submit" value="Submit" /></button>
-                        </form>
-                    
-                </div> */}
+               
 
                 <div className="modal-box">
 
