@@ -1,12 +1,60 @@
+import { useContext } from "react";
 import Rating from "react-rating";
 import { useLoaderData } from "react-router-dom";
+import { AuthContext } from "../Shared/AuthProvider";
+import Swal from "sweetalert2";
+
 
 
 const Details = () => {
-
+    const { user } = useContext(AuthContext)
     const book = useLoaderData()
     console.log(book)
-    const {_id, name, category, image, rating, author, description, quantity }= book;
+    const { _id, name, category, image, rating, author, description, quantity } = book;
+
+
+    const handleBorrow = e => {
+        e.preventDefault()
+        const form = e.target
+        const borrowedDate = form.todaysDate.value
+        const returnDate = form.returnDate.value
+        const email = user?.email
+        const displayName = user?.displayName
+        
+
+        const borrowedBook = {
+            email, 
+            displayName,
+            borrowedDate,
+            returnDate,
+            _id,
+            image,
+            category,
+            name,
+        }
+
+        fetch('http://localhost:5000/borrowedBooks',{
+            method: 'POST',
+            headers:{
+                'content-type': 'application/json' 
+            },
+            body: JSON.stringify(borrowedBook)
+        })
+        .then(res => res.json())
+        .then(data => {
+            
+            if(data.insertedId){
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'You have borrowed the book successfully',
+                    icon: 'success',
+                    confirmButtonText: 'OK'
+                  })
+            }
+           
+        })
+
+    }
 
 
     return (
@@ -26,7 +74,7 @@ const Details = () => {
                     <p className="text-justify">{description}</p>
                     <div className="text-xl font-bold flex items-center my-2"><span>Rating: </span> <Rating initialRating={rating}></Rating></div>
                     <div className="flex items-center gap-6 mt-4">
-                        <button className="border-2 border-blue-950 rounded-lg py-2 px-4 font-semibold w-2/4 hover:bg-blue-950 hover:text-white">Borrow</button>
+                        <button onClick={() => document.getElementById('my_modal_5').showModal()} className="border-2 border-blue-950 rounded-lg py-2 px-4 font-semibold w-2/4 hover:bg-blue-950 hover:text-white">Borrow</button>
 
                         <button className="border-2 border-blue-950 rounded-lg py-2 px-4 font-semibold w-2/4 hover:bg-blue-950 hover:text-white">Read More</button>
                     </div>
@@ -34,6 +82,43 @@ const Details = () => {
 
 
             </div>
+
+
+
+
+
+
+            <dialog id="my_modal_5" className=" modal modal-bottom sm:modal-middle">
+                {/* <div className="modal-box min-h-[300px]">
+                    
+                    <p className="py-2 text-2xl font-medium text-center">Fill Up the Form</p>
+                    
+                        <form onSubmit={handleBorrow} method="dialog ">
+                            <p className="text-xl">Return Date:</p>
+                           
+                            <input type="date" name="date" className="my-5 border border-blue-800 rounded-lg px-3 w-full py-3 focus:outline-blue-800" />                          
+                           <button> <input className=" w-full py-3 px-4 btn btn-outline" type="submit" value="Submit" /></button>
+                        </form>
+                    
+                </div> */}
+
+                <div className="modal-box">
+
+                    <p className="py-2 text-2xl font-medium text-center">Fill Up the Form</p>
+                    <form onSubmit={handleBorrow} method="dialog">
+                        <p className="text-xl">Todays Date:</p>
+                        <input type="date" name="todaysDate" className="my-5 border border-blue-800 rounded-lg px-3 w-full py-3 focus:outline-blue-800" />
+
+                        <p className="text-xl">Return Date:</p>
+                        <input type="date" name="returnDate" className="my-5 border border-blue-800 rounded-lg px-3 w-full py-3 focus:outline-blue-800" />
+
+                        <button className="btn w-full">Submit</button>
+                    </form>
+                </div>
+
+            </dialog>
+
+
 
 
 

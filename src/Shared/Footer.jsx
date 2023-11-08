@@ -5,8 +5,8 @@ const Footer = () => {
         <div className="bg-blue-950 text-white">
             <footer className="footer p-10 max-w-7xl mx-auto">
             <aside>
-                <img src="https://i.ibb.co/BVy8W2r/logo.png" alt="" />
-                <p>ACME Industries Ltd.<br />Providing reliable tech since 1992</p>
+                <img className="w-2/4" src="https://i.ibb.co/BVy8W2r/logo.png" alt="" />
+                <p>Public Library<br />Providing reliable service since 2020</p>
             </aside>
             <nav>
                 <header className="footer-title">Services</header>
