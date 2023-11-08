@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import Rating from "react-rating";
-import { AiOutlineStar } from "react-icons/ai";
+
 
 
 const AllBooks = () => {

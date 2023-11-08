@@ -1,5 +1,5 @@
 import Rating from "react-rating";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 
 const Books = () => {
@@ -19,7 +19,7 @@ const Books = () => {
                         <p className="text-md ">By {book?.author}</p>
                         <p className="text-xl font-bold ">Category: <span className="font-medium">{book?.category}</span></p>
                         <p className="text-xl font-medium "><Rating initialRating={book?.rating}/></p>
-                        <button className="btn btn-outline hover:bg-blue-950">See Details</button>
+                        <Link to={`/book/${book._id}`}><button className="btn btn-outline hover:bg-blue-950">See Details</button></Link>
                     </div>
                 </div>)
             }
