@@ -45,17 +45,17 @@ import Update from "../Pages/Update";
             },
             {
               path:'/books/:name',
-              element: <Books></Books>,
+              element: <PrivateRoutes><Books></Books></PrivateRoutes>,
               loader: ({params}) => fetch(`http://localhost:5000/books/${params.name}`)
             },
             {
               path:'/book/:id',
-              element: <Details></Details>,
+              element: <PrivateRoutes><Details></Details></PrivateRoutes>,
               loader: ({params}) => fetch(`http://localhost:5000/book/${params.id}`)
             },
             {
               path:'/update/:id',
-              element: <Update></Update>,
+              element: <PrivateRoutes><Update></Update></PrivateRoutes>,
               loader: ({params}) => fetch(`http://localhost:5000/book/${params.id}`)
             },
         ]

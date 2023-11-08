@@ -1,11 +1,12 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Shared/AuthProvider";
+import Swal from "sweetalert2";
 
 
 const Borrowed = () => {
     const { user } = useContext(AuthContext)
     const [borrowedBooks, setBorrowedBooks] = useState([])
-    console.log(borrowedBooks)
+
     useEffect(() => {
         fetch(`http://localhost:5000/borrowedBooks?email=${user?.email}`)
             .then(res => res.json())
@@ -14,6 +15,45 @@ const Borrowed = () => {
             })
     }, [])
 
+
+    const handleDelete = (_id) => {
+
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You want to return the book!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, I want!'
+        })
+            .then((result) => {
+                if (result.isConfirmed) {
+
+                    fetch(`http://localhost:5000/borrowedBooks/${_id}`, {
+                        method: 'delete'
+                    })
+                        .then(res => res.json())
+                        .then(data => {
+                            console.log(data);
+                            if (data.deletedCount > 0) {
+                                Swal.fire(
+                                    'Returned!',
+                                    'You have returned the book successfully.',
+                                    'success'
+                                )
+                            }
+
+                            const remaining = borrowedBooks.filter(cartItem => cartItem._id !== _id)
+                            setBorrowedBooks(remaining)
+                        })
+
+                }
+            })
+
+    }
+
+
     return (
         <div className="overflow-x-auto max-w-[1440px] mx-auto px-10">
             <table className="table">
@@ -21,7 +61,8 @@ const Borrowed = () => {
                 <thead>
                     <tr>
                         <th><p>Image</p></th>
-                        <th>Name/Category</th>
+                        <th>Name</th>
+                        <th>Category</th>
                         <th>Borrowed Date</th>
                         <th>Return Date</th>
                         <th>Return</th>
@@ -45,9 +86,12 @@ const Borrowed = () => {
 
                             <td>
                                 <div>
-                                    <div className="font-bold">{book?.name}</div>
-                                    <div className="text-sm opacity-50">{book?.category}</div>
+                                    <p className="">{book?.name}</p>
+
                                 </div>
+                            </td>
+                            <td>
+                                <p className="">{book?.category}</p>
                             </td>
 
                             <td>
@@ -59,7 +103,7 @@ const Borrowed = () => {
                             </td>
 
                             <td>
-                                <button className="btn btn-outline hover:bg-blue-900">Return</button>
+                                <button onClick={() => handleDelete(book?._id)} className="btn btn-outline hover:bg-blue-900">Return</button>
                             </td>
 
                         </tr>)
