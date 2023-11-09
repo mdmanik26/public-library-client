@@ -8,7 +8,7 @@ const Borrowed = () => {
     const [borrowedBooks, setBorrowedBooks] = useState([])
 
     useEffect(() => {
-        fetch(`http://localhost:5000/borrowedBooks?email=${user?.email}`)
+        fetch(`https://public-library-server.vercel.app/borrowedBooks?email=${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 setBorrowedBooks(data)
@@ -30,7 +30,7 @@ const Borrowed = () => {
             .then((result) => {
                 if (result.isConfirmed) {
 
-                    fetch(`http://localhost:5000/borrowedBooks/${_id}`, {
+                    fetch(`https://public-library-server.vercel.app/borrowedBooks/${_id}`, {
                         method: 'delete'
                     })
                         .then(res => res.json())

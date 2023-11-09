@@ -2,7 +2,7 @@
 
 const Footer = () => {
     return (
-        <div className="bg-blue-950 text-white">
+        <div className="bg-slate-600 text-white min-h-[400px] flex items-center">
             <footer className="footer p-10 max-w-7xl mx-auto">
             <aside>
                 <img className="w-2/4" src="https://i.ibb.co/BVy8W2r/logo.png" alt="" />

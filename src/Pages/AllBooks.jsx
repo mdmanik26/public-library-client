@@ -9,7 +9,7 @@ const AllBooks = () => {
     const [books, setBooks] = useState([])
     console.log(books)
     useEffect(() => {
-        fetch('http://localhost:5000/allBooks')
+        fetch('https://public-library-server.vercel.app/allBooks')
             .then(res => res.json())
             .then(data => setBooks(data))
     }, [])
@@ -23,7 +23,7 @@ const AllBooks = () => {
                         <img className="rounded-lg" src={book?.image} alt="" />
                     </div>
                     <div className="space-y-3 flex-1">
-                        <p className="text-3xl text-blue-950 font-bold ">{book?.name}</p>
+                        <p className="text-3xl text-slate-400 font-bold ">{book?.name}</p>
                         <p className="text-md ">By {book?.author}</p>
                         <p className="text-xl font-bold ">Category: <span className="font-medium">{book?.category}</span></p>
                         <p className="text-md ">Quantity: {book?.quantity}</p>

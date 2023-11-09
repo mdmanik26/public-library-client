@@ -49,22 +49,22 @@ import ErrorPage from "../Pages/ErrorPage";
             {
               path:'/books/:name',
               element: <PrivateRoutes><Books></Books></PrivateRoutes>,
-              loader: ({params}) => fetch(`http://localhost:5000/books/${params.name}`)
+              loader: ({params}) => fetch(`https://public-library-server.vercel.app/books/${params.name}`)
             },
             {
               path:'/book/:id',
               element: <PrivateRoutes><Details></Details></PrivateRoutes>,
-              loader: ({params}) => fetch(`http://localhost:5000/book/${params.id}`)
+              loader: ({params}) => fetch(`https://public-library-server.vercel.app/book/${params.id}`)
             },
             {
               path:'/update/:id',
               element: <PrivateRoutes><Update></Update></PrivateRoutes>,
-              loader: ({params}) => fetch(`http://localhost:5000/book/${params.id}`)
+              loader: ({params}) => fetch(`https://public-library-server.vercel.app/book/${params.id}`)
             },
             {
               path:'/read/:id',
               element: <PrivateRoutes><Read></Read></PrivateRoutes>,
-              loader: ({params}) => fetch(`http://localhost:5000/book/${params.id}`)
+              loader: ({params}) => fetch(`https://public-library-server.vercel.app/book/${params.id}`)
             },
         ]
     }

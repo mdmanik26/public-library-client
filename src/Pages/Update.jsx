@@ -21,7 +21,7 @@ const Update = () => {
 
         const updateBook = {image, name, author, rating, category}
 
-        fetch(`http://localhost:5000/update/${_id}`, {
+        fetch(`https://public-library-server.vercel.app/update/${_id}`, {
             method: 'PUT',
             headers: {
                 "content-type": 'application/json'
@@ -56,11 +56,11 @@ const Update = () => {
                 <form onSubmit={handleUpdate}>
                     <div className=' md:flex justify-between items-center gap-4 mt-4 space-y-4 md:space-y-0'>
                         <div className='flex-1'>
-                            <p className="text-lg font-semibold text-blue-950 text-left">Image</p>
+                            <p className="text-lg font-semibold  text-left">Image</p>
                             <input defaultValue={image} className='text-white focus:text-black focus:border-l-8 focus:border-blue-950 focus:bg-white focus:rounded-r-lg w-full mb-3 px-3 py-3 outline-0 border border-white bg-blue-950' type="text" name="image" required placeholder="Image URL" />
                         </div>
                         <div className='flex-1'>
-                            <p className="text-lg font-semibold text-blue-950 text-left">Name</p>
+                            <p className="text-lg font-semibold  text-left">Name</p>
                             <input defaultValue={name} className='text-white focus:text-black focus:border-l-8 focus:border-blue-950 focus:bg-white focus:rounded-r-lg w-full mb-3 px-3 py-3 outline-0 border border-white  bg-blue-950' type="text" name="name" required placeholder="Name" />
 
                         </div>
@@ -68,14 +68,14 @@ const Update = () => {
                     <div className=' md:flex justify-between items-center gap-4 mt-4 space-y-4 md:space-y-0'>
 
                         <div className='flex-1'>
-                            <p className="text-lg font-semibold text-blue-950 text-left">Author Name
+                            <p className="text-lg font-semibold  text-left">Author Name
                             </p>
                             <input defaultValue={author} className='text-white focus:text-black focus:border-l-8 focus:border-blue-950 focus:bg-white focus:rounded-r-lg w-full mb-3 px-3 py-3 outline-0 border border-white bg-blue-950' type="text" name="author" required placeholder="Author Name
 " />
                         </div>
 
                         <div className='flex-1'>
-                            <p className="text-lg font-semibold text-blue-950 text-left">Category</p>
+                            <p className="text-lg font-semibold  text-left">Category</p>
 
 
                             <select defaultValue={category} name="category" className="py-3 bg-blue-950 text-white w-full text-center">
@@ -93,13 +93,13 @@ const Update = () => {
                     <div className=' md:flex justify-between  gap-4 mt-4 space-y-4 md:space-y-0'>
 
                         <div className='flex-1'>
-                            <p className="text-lg font-semibold text-blue-950 text-left">Rating</p>
+                            <p className="text-lg font-semibold  text-left">Rating</p>
                             <input defaultValue={rating} className='text-white focus:text-black focus:border-l-8 focus:border-blue-950 focus:bg-white focus:rounded-r-lg w-full mb-3 px-3 py-3 outline-0 border border-white bg-blue-950' type="text" name="rating" required placeholder="Rating" />
                         </div>
 
                         <div className='flex-1'>
 
-                            <input className='hover:cursor-pointer w-full px-3 py-3 md:mt-7 outline-0  hover:bg-blue-950 border-2 border-blue-950  rounded-lg text-black hover:text-white font-semibold' type="submit" name="" value="Update Book" />
+                            <input className='hover:cursor-pointer text-blue-700 w-full px-3 py-3 md:mt-7 outline-0  hover:bg-blue-950 border-2 border-blue-950  rounded-lg text-black hover:text-white font-semibold' type="submit" name="" value="Update Book" />
 
                         </div>
 

@@ -33,7 +33,7 @@ const Details = () => {
             name,
         }
 
-        fetch('http://localhost:5000/borrowedBooks',{
+        fetch('https://public-library-server.vercel.app/borrowedBooks',{
             method: 'POST',
             headers:{
                 'content-type': 'application/json' 
@@ -50,6 +50,7 @@ const Details = () => {
                     icon: 'success',
                     confirmButtonText: 'OK'
                   })
+                  window.location.reload(false);
             }
            
         })

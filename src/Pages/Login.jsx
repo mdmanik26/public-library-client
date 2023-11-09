@@ -83,7 +83,7 @@ const Login = () => {
 
 
                     <div className="flex-1 md:flex flex-col text-center my-6 hidden">
-                        <img className="mx-auto" src="https://i.ibb.co/BVy8W2r/logo.png" alt="" />
+                        <img className="mx-auto w-[100px]" src="https://i.ibb.co/3ynpKMt/login-pic.png" alt="" />
                         <p className="flex mx-auto md:mt-4">Don't have an account <Link to={'/signup'} className="text-blue-600  font-semibold ml-2"> Sign Up</Link></p>
                     </div>
                 </div>
